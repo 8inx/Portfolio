@@ -1,0 +1,28 @@
+@font-face {
+  font-family: Promesh;
+  src: url(../font/PROMESHStitch-Regular.ttf);
+}
+
+@font-face {
+  font-family: Poppins;
+  src: url(../font/Poppins-Bold.ttf);
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: Poppins;
+  src: url(../font/Poppins-SemiBold.ttf);
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: Poppins;
+  src: url(../font/Poppins-Regular.ttf);
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: Poppins;
+  src: url(../font/Poppins-Light.ttf);
+  font-weight: 300;
+}

@@ -1,0 +1,16 @@
+/*fonts*/
+
+@import url(./icon-dale.css);
+@import url(./font-dale.css);
+
+* {
+  box-sizing: border-box;
+}
+
+*, 
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+}
+

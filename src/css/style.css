@@ -1,7 +1,19 @@
-/*fonts*/
-
+/* icons */
 @import url(./icon-dale.css);
+/* fonts */
 @import url(./font-dale.css);
+
+:root {
+  --white: #ffffff;
+  --white-d: #cccccc;
+  --grey: #9a9a9a;
+  --black-c: #171717;
+  --black-b:#0a0a0a;
+  --black: #000000;
+  --black-60: rgba(0, 0, 0, 0.60);
+  --skew-size: 3em;
+
+}
 
 * {
   box-sizing: border-box;
@@ -14,3 +26,400 @@
   padding: 0;
 }
 
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+/* Text */
+h1, h2, h3, h4, h5, h6,
+a, p, small
+{
+  font-family: Poppins;
+  color: var(--white);
+}
+
+a {
+  text-decoration: none;
+}
+
+
+/* button */
+.btn {
+  border: none;
+  border-radius:.3em;
+  color: var(--white);
+  font-weight: 600;
+  padding: .2em .3em;
+}
+
+.btn-primary {
+  display: inline-block;
+  background-color: var(--white);
+  color: var(--black);
+}
+
+.section_title {
+  color: var(--grey);
+  font-size: 2.5em;
+  line-height: 3em;
+}
+.wrapper {
+  max-width: 1400px;
+  margin:0 auto;
+  padding: 0 5%;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+}
+
+.col-6 {
+  grid-column: span 6;
+}
+
+.col-3 {
+  grid-column: span 3;
+}
+
+.ai-center {
+  display: grid;
+  align-items: center;
+}
+
+.jc-center {
+  display: grid;
+  justify-content: center;
+}
+
+/******************
+  Navigation
+******************/
+
+.nav {
+  width: 100%;
+  background-color: var(--black-60);
+  position: fixed;
+  z-index:2000;
+}
+
+.navigation {
+  display: flex;
+  height: 4em;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav__brand a {
+  color: var(--white);
+  font-size: 1.25em;
+  font-weight: 600;
+}
+
+.nav__list {
+  padding: 0;
+  list-style-type: none;
+}
+
+.nav__item {
+  display: inline-block;
+  padding-left: 2.5em;
+}
+
+.nav__link {
+  color: var(--white-d);
+  font-size: 1em;
+  font-weight: 300;
+}
+
+.nav__link:hover {
+  color: var(--white);
+}
+
+section {
+  width: 100%;
+}
+
+body {
+  background-color: var(--black-b);
+}
+
+/******************
+  Hero 
+******************/
+
+.hero {
+  display: grid;
+  justify-content: center;
+}
+
+.hero__header{
+  min-height: 100vh;
+  display: grid;
+  align-items: center;
+}
+.hero__title {
+  font-family: Promesh;
+  font-weight: 400;
+  font-size: 8em;
+  color: var(--white);
+}
+
+.hero__down__animation {
+  position: absolute;
+  width: 2.5em;
+  height: 6em;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: space-between;
+  overflow-y: hidden;
+
+}
+
+.hero__down__animation span{
+  position: relative;
+  display: block;
+  width: 4px;
+  height: 100%;
+  background-color: var(--white);
+  border-radius:50px;
+}
+
+.hero__down__animation span:nth-child(1) {
+  animation: kftopbottom .6s linear 0s infinite;
+}
+
+.hero__down__animation span:nth-child(2) {
+  animation: kftopbottom .6s linear .2s infinite;
+}
+
+.hero__down__animation span:nth-child(3) {
+  animation: kftopbottom .6s linear .4s infinite;
+}
+
+@keyframes kftopbottom {
+  0% {top: -100%;}
+  100% {top: 100%;}
+}
+
+
+/******************
+  About
+******************/
+
+.about {
+  background-color: var(--black);
+  clip-path: polygon(0 0, 100% var(--skew-size), 100% calc(100% - var(--skew-size)), 0% 100%);
+  padding-top: calc(var(--skew-size) * 2);
+  padding-bottom: calc(var(--skew-size) * 2);
+  position: relative;
+}
+
+.about::before {
+  content: '';
+  position: absolute;
+  height:100%;
+  top: 0;
+  left: 0;
+  right: 50%;
+  background: url('../image/windmill.png');
+  background-position: 50% 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.about .section_title {
+  z-index: 1000;
+}
+
+.about__body {
+  margin-left:2rem;
+}
+
+.about__text {
+  max-width: 37ch;
+  line-height: 2em;
+}
+
+.about__btn {
+  margin-top: 3em;
+}
+
+
+/******************
+  Skills
+******************/
+
+.skills {
+  background-color: var(--black);
+  position: relative;
+  padding-top: calc(var(--skew-size) * 2.5);
+  padding-bottom: calc(var(--skew-size) * 2.5);
+}
+
+.skills:before {
+  content: '';
+  position: absolute;
+  height:calc(var(--skew-size) * 2);
+  top:calc(-1 * var(--skew-size));
+  left:0;
+  right:0;
+  background-color: var(--black-c);
+  clip-path: polygon(0 var(--skew-size), 100% 0, 100% calc(100% - var(--skew-size)), 0% 100%);
+}
+
+.skills::after {
+  content: '';
+  background-color: var(--black);
+  position: absolute;
+  height:calc(var(--skew-size) * 2);
+  bottom:calc(-2 * var(--skew-size));
+  left:0;
+  right:0;
+  clip-path: polygon(0 0, 100% 0, 100% 50%);
+}
+
+.skills .row {
+  padding-top: 2rem ;
+  gap: 1rem;
+}
+
+.skills__card {
+  display: grid;
+  grid-template-columns: 1fr;
+  text-align: center;
+  color: var(--white-d);
+  transition: color 1s;
+}
+
+.skills__card:hover {
+  color: var(--white);
+}
+
+.skills__icon {
+  font-size: 4em;
+}
+
+.skills__name {
+  font-size: 1em;
+}
+
+
+/******************
+  Skills
+******************/
+
+.contact {
+  margin-top: calc(var(--skew-size) * 2);
+  margin-bottom: 8em;
+  position: relative;
+}
+
+.contact .section_title {
+  line-height: normal;
+  padding-top: 2.5rem;
+}
+
+.contact__text {
+  max-width: 35ch;
+  line-height: 1.5em;
+  margin-top: 2.5rem;
+}
+
+.contact__contact {
+  margin-top: 2.5rem;
+  color: var(--grey);
+}
+
+.contact__social {
+  list-style-type: none;
+  padding-left: 0;
+  margin-top: 2.5rem;
+}
+
+.contact__links {
+  font-size: 1.5em;
+  color: var(--grey);
+  transition: color .5s;
+}
+
+.contact__links:hover {
+  color: var(--white);
+}
+
+
+.contact::after {
+  content: '';
+  background-color: var(--black);
+  position: absolute;
+  height:calc(var(--skew-size) * .8);
+  top:calc(100% + 8em);
+  left:0;
+  right:0;
+}
+
+
+@media only screen and (max-width: 600px) {
+  .wrapper{
+    max-width:500px;
+  }
+
+  .section_title {
+    font-size: 2em;
+  }
+
+  .col-xs-12 {
+    grid-column: span 12;
+  }
+  
+  .ai-xs-left {
+    display: grid;
+    align-items:flex-start;
+  }
+
+  .jc-xs-left {
+    display: grid;
+    justify-content: left;
+  }
+
+  .navigation {
+    justify-content: center;
+  }
+
+  .nav__brand {
+    display: none;
+  }
+
+  .nav__item {
+    padding: 0 10px;
+  }
+
+
+  .about {
+    background-image: url('../image/windmill.png');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  .about::before {
+    height: 0;
+  }
+
+  .about__body {
+    margin-left: 0%;
+  }
+
+
+  .skills__icon {
+    font-size: 2.5em;
+  }
+  
+  .skills__name {
+    font-size: .6em;
+  }
+
+}

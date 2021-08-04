@@ -77,7 +77,8 @@ exports.default = {
       filename: 'assets/css/[name].css'
     }), 
     new HTMLWebpackPlugin({
-      template: "./src/index.html"
+      template: "./src/index.html",
+      favicon: "./src/image/icon_tsuru.ico"
     })
   ],
 

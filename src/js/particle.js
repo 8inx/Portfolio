@@ -22,7 +22,7 @@ const RandomPosition = (a, b, c) => {
 class Particle {
   constructor(){
     
-    this.size = 300
+    this.size = 800
     this.speed = 0.1;
 
     this.material = new THREE.ShaderMaterial({
@@ -44,9 +44,9 @@ class Particle {
     )
     
     for (let i = 0; i < this.size; i++) {
-      let posX = RandomBetween(-50, 50)
+      let posX = RandomBetween(-100, 100)
       let posY = RandomBetween(-300, 50)
-      let posZ = RandomPosition(-50, -5, 2)
+      let posZ = RandomPosition(-100, -5, 2)
       this.positions.setXYZ(i, posX, posY, posZ)
       this.velocity.setX(i, RandomBetween(0.005, 0.05))
     }

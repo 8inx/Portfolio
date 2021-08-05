@@ -10,8 +10,9 @@ import Origami from './js/origami'
 let scene, camera;
 let renderer, renderPass, afterImagePass, composer;
 let particle, tsuru;
+let canvas;
 let mouseX, mouseY;
-// let clock = new THREE.Clock();
+let minspeed = 10000;
 
 
 init()
@@ -19,6 +20,7 @@ animate()
 
 function init() {
   
+  canvas = document.getElementById('webgl')
   scene = new THREE.Scene()
 
   camera = new THREE.PerspectiveCamera(
@@ -27,7 +29,7 @@ function init() {
   camera.position.z = 3.0;
   scene.add(camera)
   
-  const light = new THREE.PointLight(0x999999,1)
+  const light = new THREE.PointLight(0xffffff,0.6)
   scene.add(light)
   renderer = new THREE.WebGL1Renderer({
     canvas: webgl,
@@ -55,51 +57,59 @@ function init() {
   
   tsuru = new Origami()
   tsuru.display(scene)
-  //console.log(tsuru.model)
 
 
   /* LISTENERS */
-  document.body.onscroll = moveCamera;
+  document.body.onscroll = onScroll;
   document.body.onmousemove = mouseMove;
+  document.body.ontouchmove = touchMove;
   document.body.onresize = Resize;
 
 }
 
+
 function Resize() {
-  camera.aspect = window.innerWidth / window.innerHeight;
-  camera.updateProjectionMatrix()
-  renderer.setSize(innerWidth, innerHeight)
+  canvas.width = document.body.clientWidth;
+  canvas.height = window.innerHeight;
+  camera.aspect = document.body.clientWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(document.body.clientWidth, window.innerHeight);
 }
 
-function moveCamera() {
+function onScroll() {
   const top = document.body.getBoundingClientRect().top;
-  camera.position.y = top * 0.1;
+  camera.position.y = top * 0.05;
 }
 
 function mouseMove( event ) {
   mouseX = event.clientX - innerWidth/2;
   mouseY = event.clientY - innerHeight/2;
 
-  particle.mesh.rotation.x = -mouseY/10000
-  particle.mesh.rotation.y = -mouseX/10000
+  particle.mesh.rotation.x = -mouseY/minspeed
+  particle.mesh.rotation.y = -mouseX/minspeed
 
   if(tsuru.model){
-    tsuru.model.rotation.x = -mouseY/10000
-    tsuru.model.rotation.y = -mouseX/10000 + Math.PI/2.4
+    tsuru.model.rotation.x = -mouseY/minspeed
+    tsuru.model.rotation.y = -mouseX/minspeed + Math.PI/2.4
+  }
+
+}
+
+function touchMove( event ) {
+  mouseX = event.touches[0].clientX - innerWidth/2;
+  mouseY = event.touches[0].clientY - innerHeight/2;
+
+  particle.mesh.rotation.x = -mouseY/minspeed
+  particle.mesh.rotation.y = -mouseX/minspeed
+
+  if(tsuru.model){
+    tsuru.model.rotation.x = -mouseY/minspeed
+    tsuru.model.rotation.y = -mouseX/minspeed + Math.PI/2.4
   }
 }
 
 function animate() {
   requestAnimationFrame(animate)
-
-  // const elapsedTime = clock.getElapsedTime()
-  // particle.mesh.rotation.y = -1 * elapsedTime;
-  // console.log(elapsedTime)
-  // if(mouseX > 0){
-  //   particle.mesh.rotation.x = -mouseX * elapsedTime * 0.00008;
-  //   particle.mesh.rotation.y = -mouseY * elapsedTime * 0.00008;
-  // }
-
 
   particle.update()
 
@@ -112,7 +122,5 @@ function animate() {
   renderer.clearDepth();
   camera.layers.set(0);
   renderer.render( scene, camera );
-
-  //renderer.render( scene, camera)
 
 }

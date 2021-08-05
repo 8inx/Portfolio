@@ -305,6 +305,7 @@ body {
 
 .skills__card:hover {
   color: var(--white);
+  cursor: default;
 }
 
 .skills__icon {

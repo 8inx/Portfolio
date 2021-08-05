@@ -22,7 +22,7 @@ const RandomPosition = (a, b, c) => {
 class Particle {
   constructor(){
     
-    this.size = 200
+    this.size = 300
     this.speed = 0.1;
 
     this.material = new THREE.ShaderMaterial({

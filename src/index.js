@@ -32,9 +32,14 @@ function init() {
   scene.add(particle.mesh)
 
 
+  camera.position.z = 3.0;
+  document.body.onscroll = moveCamera;
 
-  camera.position.z = 3.0
+}
 
+function moveCamera() {
+  const top = document.body.getBoundingClientRect().top;
+  camera.position.y = top * 0.1;
 }
 
 function animate() {

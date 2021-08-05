@@ -145,6 +145,14 @@ body {
   background-color: var(--black-b);
 }
 
+
+#webgl {
+  position: fixed;
+  top:0;
+  left:0;
+  z-index: -100;
+}
+
 /******************
   Hero 
 ******************/
@@ -264,7 +272,7 @@ body {
   content: '';
   position: absolute;
   height:calc(var(--skew-size) * 2);
-  top:calc(-1 * var(--skew-size));
+  top:calc(-1 * var(--skew-size) - 1px);
   left:0;
   right:0;
   background-color: var(--black-c);

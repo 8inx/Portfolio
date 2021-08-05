@@ -1,4 +1,5 @@
 import * as THREE from 'three'
+import texture from '../image/particle_texture.png'
 import vshader from '../shaders/vertex.glsl'
 import fshader from '../shaders/fragment.glsl'
 
@@ -26,10 +27,11 @@ class Particle {
 
     this.material = new THREE.ShaderMaterial({
       uniforms:{
-        u_time: { type: "f", value: 0}
+        t_particle: { type: "t", value: new THREE.TextureLoader().load(texture)}
       },
       vertexShader: vshader,
-      fragmentShader: fshader
+      fragmentShader: fshader,
+      transparent: true
     })
 
     this.geometry = new THREE.BufferGeometry()
@@ -43,7 +45,7 @@ class Particle {
     
     for (let i = 0; i < this.size; i++) {
       let posX = RandomBetween(-50, 50)
-      let posY = RandomBetween(-50, 50)
+      let posY = RandomBetween(-300, 50)
       let posZ = RandomPosition(-50, -5, 2)
       this.positions.setXYZ(i, posX, posY, posZ)
       this.velocity.setX(i, RandomBetween(0.005, 0.05))
@@ -67,7 +69,7 @@ class Particle {
     for(let i = 0; i < this.size; i++){ 
       let newPos = position.getY(i) + velocity.getX(i)
       if(position.getY(i) >= 50){
-        newPos = -50
+        newPos = -300
       }
       position.setY(i, newPos)
       // console.log(position.getY(i))

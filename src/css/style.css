@@ -262,7 +262,7 @@ body {
 ******************/
 
 .skills {
-  background-color: var(--black);
+  background-color: var(--black-60);
   position: relative;
   padding-top: calc(var(--skew-size) * 2.5);
   padding-bottom: calc(var(--skew-size) * 2.5);

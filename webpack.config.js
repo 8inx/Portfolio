@@ -29,15 +29,15 @@ exports.default = {
           }
         ]
       },
+      // {
+      //   test: /\.(gltf|fbx)$/i,
+      //   type: "assets",
+      //   generator: {
+      //     filename: 'assets/models/[name][ext][query]'
+      //   }
+      // },
       {
-        test: /\.(gltf|fbx)$/,
-        type: "assets",
-        generator: {
-          filename: 'assets/models/[name][ext][query]'
-        }
-      },
-      {
-        test: /\.(png|jpe?g|gif|svg)$/i,
+        test: /\.(png|jpe?g|gif|svg|gltf)$/i,
         type: "asset",
         generator: {
           filename: 'assets/image/[name][ext][query]'

@@ -56,8 +56,6 @@ class Particle {
     this.geometry.setAttribute("a_velocity", this.velocity)
 
     this.mesh = new THREE.Points(this.geometry, this.material)
-
-    console.log(this.mesh.geometry.attributes)
   }
 
 

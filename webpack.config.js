@@ -37,7 +37,25 @@ exports.default = {
       //   }
       // },
       {
-        test: /\.(png|jpe?g|gif|svg|gltf)$/i,
+        test: /\.pdf$/,
+        use: {
+          loader: 'file-loader',
+          options: {
+            name: "[name].[ext][query]"
+          },
+        }
+      },
+      {
+        test: /\.gltf$/,
+        use: {
+          loader: 'file-loader',
+          options: {
+            name: "assets/models/[name].[ext][query]"
+          },
+        }
+      },
+      {
+        test: /\.(png|jpe?g|gif|svg)$/i,
         type: "asset",
         generator: {
           filename: 'assets/image/[name][ext][query]'

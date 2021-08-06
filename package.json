@@ -19,6 +19,7 @@
     "clean-webpack-plugin": "^4.0.0-alpha.0",
     "css-loader": "^6.1.0",
     "dat.gui": "^0.7.7",
+    "file-loader": "^6.2.0",
     "glsl-shader-loader": "^0.1.6",
     "html-webpack-plugin": "^5.3.2",
     "mini-css-extract-plugin": "^2.1.0",

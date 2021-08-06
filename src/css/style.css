@@ -318,7 +318,7 @@ body {
 
 
 /******************
-  Skills
+  Contact
 ******************/
 
 .contact {
@@ -368,6 +368,44 @@ body {
   top:calc(100% + 8em);
   left:0;
   right:0;
+}
+
+
+/******************
+  Page LOADER
+******************/
+
+#loader_wrapper {
+  position: absolute;
+  top: 0;
+  height: 0;
+  background-color: var(--black-b);
+  height: 100vh;
+  width: 100%;
+  z-index:10000;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+
+.loader {
+  position: relative;
+  border: 16px solid var(--black-c);
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+}
+
+#page_wrapper {
+  display: none;
+}
+
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 

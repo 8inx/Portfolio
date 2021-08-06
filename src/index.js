@@ -65,6 +65,7 @@ function init() {
   document.body.onmousemove = mouseMove;
   document.body.ontouchmove = touchMove;
   document.body.onresize = Resize;
+  document.body.onload = onLoad;
 
 }
 
@@ -123,5 +124,14 @@ function animate() {
   renderer.clearDepth();
   camera.layers.set(0);
   renderer.render( scene, camera );
+
+}
+
+function onLoad() {
+  const loader = document.getElementById('loader_wrapper')
+  const page = document.getElementById('page_wrapper')
+  
+  loader.style.display = 'none';
+  page.style.display = 'block';
 
 }
